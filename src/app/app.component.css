@@ -1,0 +1,27 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav-big {
+  width: 200px;
+}
+.sidenav-small {
+  width: 64px;
+}
+
+.mat-card {
+  margin: 10px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.base-content{
+  display: grid;
+  grid-gap: 8px;
+  background-color: rgba(0,0,0,.04);
+  grid-template-rows: 64px auto 64px;
+  height: 100vh;
+}
