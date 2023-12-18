@@ -3,18 +3,17 @@
   <mat-drawer-container class="sidenav-container" autosize>
     <mat-drawer opened [ngClass]="iSidenavBig?'sidenav-big':'sidenav-small'" mode="side">
       <section *ngIf="!iSidenavBig">
-        <button class="w-100" (click)="iSidenavBig=!iSidenavBig" mat-icon-button color="accent">
+        <button color="accent" class="w-100" (click)="iSidenavBig=!iSidenavBig" mat-button>
           <mat-icon>menu</mat-icon>
         </button>
       </section>
       <section *ngIf="iSidenavBig">
-
-        <button class="w-100" (click)="iSidenavBig=!iSidenavBig" mat-button>
+        <button color="accent" class="w-100" (click)="iSidenavBig=!iSidenavBig" mat-button>
           <mat-icon>back</mat-icon>
         </button>
         <mat-nav-list>
-          <a mat-list-item href="#">Menu Item 1</a>
-          <a mat-list-item href="#">Menu Item 2</a>
+          <a mat-list-item *ngFor="let t of realEstateTypes" href="#">{{t?.name}}</a>
+
           <!-- Добавьте дополнительные пункты меню по необходимости -->
         </mat-nav-list>
       </section>
