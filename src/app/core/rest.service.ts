@@ -3,40 +3,43 @@ import {HttpClient, HttpHeaders, HttpParams, HttpRequest} from "@angular/common/
 import {catchError, EMPTY, finalize, map, Observable, of, skipWhile, throwError} from "rxjs";
 import {RealEstateInfo} from "../features/models/real-estate-info";
 import {PreloaderService} from "./preloader.service";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestService {
+  private readonly _url:string=''
   constructor(private _httpClient: HttpClient, private _preloaderService: PreloaderService) {
+    this._url=environment.url
   }
 
   public getRealEstates(): Observable<any> {
-    return this.sendRequest('GET', 'http://localhost:5119/api/RealEstates')
+    return this.sendRequest('GET', `${this._url}RealEstates`)
   }
 
   public getRealEstate(id: number): Observable<any> {
-    return this.sendRequest('GET', `http://localhost:5119/api/RealEstates/${id}`)
+    return this.sendRequest('GET', `${this._url}RealEstates/${id}`)
 
   }
 
   public getDevelopers(): Observable<any> {
-    return this.sendRequest('GET', `http://localhost:5119/api/Developers`)
+    return this.sendRequest('GET', `${this._url}Developers`)
 
   }
 
   public getRealEstateTypes(): Observable<any> {
-    return this.sendRequest('GET', `http://localhost:5119/api/RealEstateTypes`)
+    return this.sendRequest('GET', `${this._url}RealEstateTypes`)
 
   }
 
   public addRealEstate(model: RealEstateInfo): Observable<any> {
-    return this.sendRequest('POST', `http://localhost:5119/api/RealEstates`, model)
+    return this.sendRequest('POST', `${this._url}RealEstates`, model)
 
   }
 
   public updateRealEstate(model: RealEstateInfo): Observable<any> {
-    return this.sendRequest('PUT', `http://localhost:5119/api/RealEstates`, model)
+    return this.sendRequest('PUT', `${this._url}RealEstates`, model)
   }
 
   private sendRequest(method: 'GET' | 'POST' | 'DELETE' | 'PUT', url: any, body?: any): Observable<any> {
