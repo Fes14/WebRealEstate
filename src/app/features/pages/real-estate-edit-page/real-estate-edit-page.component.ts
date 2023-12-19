@@ -72,8 +72,6 @@ export class RealEstateEditPageComponent implements OnInit, AfterViewInit {
   }
 
   save() {
-
-    let model:RealEstateInfo=this.form.value
     this._restService.updateRealEstate(this.form.value).subscribe(() => {
 
     });
