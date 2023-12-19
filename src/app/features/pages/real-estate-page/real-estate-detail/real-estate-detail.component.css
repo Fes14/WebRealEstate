@@ -1,0 +1,37 @@
+.example-card {
+  max-width: 350px;
+  height: 400px;
+}
+
+
+.content {
+
+}
+
+.second-content {
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 500;
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  background: #fffa11fa;
+  width: fit-content;
+  padding: 2px;
+  position: absolute;
+  top: 8px;
+}
+
+.action-list {
+  position: absolute;
+  bottom: 16px;
+}

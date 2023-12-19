@@ -1,0 +1,13 @@
+.toolbar-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.label {
+  flex: 0 142px;
+}
+
+.menu {
+  flex: 1;
+}

@@ -1,0 +1,16 @@
+<mat-card (click)="showDetails()" class="example-card">
+  <img mat-card-image src="./assets/images/image_1.jpg">
+  <mat-card-content>
+    <div class="content">
+      <p class="price">{{realEstateItem?.price ?? '0'}}{{' Р'}}</p>
+      <p class="price">{{realEstateItem?.square ?? '0'}}{{' m'}}</p>
+      <p class="second-content">{{realEstateItem?.address?.street ?? '' + ' , ' }}{{realEstateItem?.address?.house ?? ''}}</p>
+      <p class="second-content">{{realEstateItem?.address?.metroStation ?? ''}}</p>
+      <p class="second-content badge">{{realEstateItem?.type ?? ''}}</p>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions class="action-list">
+    <button mat-button>Больше</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,3 +1,11 @@
-<mat-toolbar color="primary">
-  <span>{{label}}</span>
+<mat-toolbar class="toolbar-container" color="primary">
+  <span class="label">{{label}}</span>
+  <section class="menu">
+    <button [routerLink]="'main'" mat-button>Главная</button>
+    <button [routerLink]="'real-estate'" mat-button>Поиск</button>
+  </section>
+  <section>
+    <button mat-button>Войти</button>
+  </section>
+
 </mat-toolbar>

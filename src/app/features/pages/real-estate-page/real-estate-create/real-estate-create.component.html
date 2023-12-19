@@ -1,0 +1,53 @@
+<h3 class="header">Добавление объекта</h3>
+<form class="feature-column" [formGroup]="form">
+  <mat-form-field class="w-100">
+    <mat-label>Имя объекта</mat-label>
+    <input formControlName="name" matInput>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Описание объекта</mat-label>
+    <input formControlName="description" matInput>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Тип объекта</mat-label>
+    <mat-select formControlName="type">
+      <mat-option [value]="i?.name" *ngFor="let i of types">{{i?.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Цена</mat-label>
+    <input type="number" formControlName="price" matInput>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Площадь</mat-label>
+    <input type="number" formControlName="square" matInput>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Кол-во комнат</mat-label>
+    <input type="number" formControlName="roomsCount" matInput>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Застройщик</mat-label>
+    <mat-select formControlName="developer">
+      <mat-option [value]="i?.name" *ngFor="let i of developers">{{i?.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div formGroupName="address">
+    <mat-form-field>
+      <input matInput placeholder="Город" formControlName="city">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Улица" formControlName="street">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Дом" formControlName="house">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Mетро" formControlName="metroStation">
+    </mat-form-field>
+  </div>
+  <button mat-stroked-button [disabled]="form.invalid" (click)="save()">Сохранить</button>
+</form>

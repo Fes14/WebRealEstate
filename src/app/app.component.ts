@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {RealEstateType} from "./features/models/real-estate-type";
+import {PreloaderService} from "./core/preloader.service";
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RealEstates';
-  iSidenavBig: boolean=true
-  realEstateTypes: any;
+  isLoading: boolean = false
+
+  constructor(private _preloaderService: PreloaderService) {
+    _preloaderService.loaderState.subscribe(x => {
+      this.isLoading = x
+    })
+  }
 }

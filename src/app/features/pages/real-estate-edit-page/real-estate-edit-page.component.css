@@ -1,0 +1,41 @@
+.main-container {
+  display: grid;
+  grid-template-columns: 40vh 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.header {
+  max-width: 1400px;
+  margin: auto;
+  font-size: 40px;
+}
+
+.feature-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.feature-column {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: center;
+}
+
+:host {
+  overflow-y: auto;
+}
+
+.img-container {
+  width: -webkit-fill-available;
+}
+
+.action-container {
+  display: flex;
+  justify-content: end;
+}

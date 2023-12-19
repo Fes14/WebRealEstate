@@ -1,0 +1,48 @@
+<mat-drawer-container class="sidenav-container" autosize>
+  <!--  <mat-drawer opened [ngClass]="iSidenavBig?'sidenav-big':'sidenav-small'" mode="side">-->
+  <!--    <section *ngIf="!iSidenavBig">-->
+  <!--      <button color="accent" class="w-100" (click)="iSidenavBig=!iSidenavBig" mat-button>-->
+  <!--        <mat-icon>menu</mat-icon>-->
+  <!--      </button>-->
+  <!--    </section>-->
+  <!--    <section *ngIf="iSidenavBig">-->
+  <!--      <button color="accent" class="w-100" (click)="iSidenavBig=!iSidenavBig" mat-button>-->
+  <!--        <mat-icon>chevron_left</mat-icon>-->
+  <!--      </button>-->
+  <!--      <mat-nav-list>-->
+  <!--        <a mat-list-item *ngFor="let t of realEstateTypes" href="#">{{t?.name}}</a>-->
+  <!--      </mat-nav-list>-->
+  <!--    </section>-->
+  <!--  </mat-drawer>-->
+
+  <div class="action-container">
+    <mat-slide-toggle [(ngModel)]="tableMode">Показать списком</mat-slide-toggle>
+    <button mat-flat-button color="primary" (click)="add()">Добавить</button>
+
+  </div>
+
+  <div *ngIf="tableMode">
+    <table mat-table
+           class="w-100" [dataSource]="dataSource">
+
+      <ng-container *ngFor="let column of displayedCols;let i=index" [matColumnDef]="column">
+
+        <th mat-header-cell *matHeaderCellDef>
+          {{column}}
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedCols;sticky: true"></tr>
+      <tr (dblclick)="getDetails(row)" mat-row
+          *matRowDef="let row;let j=index;columns: displayedCols;">
+      </tr>
+
+    </table>
+  </div>
+  <div *ngIf="!tableMode" class="card-container">
+    <app-real-estate-detail *ngFor="let column of dataSource.data;let i=index"
+                            [realEstateItem]="dataSource.data[i]"></app-real-estate-detail>
+  </div>
+
+
+</mat-drawer-container>
